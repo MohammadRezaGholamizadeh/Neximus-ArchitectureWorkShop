@@ -1,0 +1,5 @@
+{
+  "MigrationSettings": {
+    "ConnectionString": "server=.;database=Neximus;Trusted_connection=true;"
+  }
+}
