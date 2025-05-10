@@ -1,6 +1,6 @@
-﻿using Neximus.WorkShop.Domain.Carts.Carts;
+﻿using Neximus.WorkShop.Persistance.Carts.Carts;
 
-namespace Neximus.WorkShop.Domain.HumanResources.Users
+namespace Neximus.WorkShop.Persistance.HumanResources.Users
 {
     public class User
     {
@@ -8,7 +8,6 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         {
             Carts = new HashSet<Cart>();
         }
-
         public string Id { get; set; }
         public string UserName { get; set; }
         public string FirstName { get; set; }
