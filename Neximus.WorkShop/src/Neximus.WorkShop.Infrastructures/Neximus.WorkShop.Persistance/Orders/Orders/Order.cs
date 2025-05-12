@@ -1,4 +1,5 @@
-﻿using Neximus.WorkShop.Persistance.HumanResources.Users;
+﻿using Neximus.WorkShop.Domain.HumanResources.Users;
+using Neximus.WorkShop.Persistance.HumanResources.Users;
 
 namespace Neximus.WorkShop.Persistance.Orders.Orders
 {
