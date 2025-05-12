@@ -1,9 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Neximus.WorkShop.Domain.Carts.Carts;
-using Neximus.WorkShop.Persistance.HumanResources.Users;
 
-namespace Neximus.WorkShop.Persistance.Carts.Carts
+namespace Neximus.WorkShop.Persistence.Carts.Carts
 {
 
     public class CartEntityMap : IEntityTypeConfiguration<Cart>

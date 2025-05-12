@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Neximus.WorkShop.Persentati
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{751FEC69-F4B0-469D-B822-961E70FB8162}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neximus.WorkShop.Persistance", "src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Persistance\Neximus.WorkShop.Persistance.csproj", "{6B3D6200-272D-4F5D-B574-7E1F4E5C428D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neximus.WorkShop.Persistence", "src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Persistance\Neximus.WorkShop.Persistence.csproj", "{6B3D6200-272D-4F5D-B574-7E1F4E5C428D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neximus.WorkShop.Infrastructures", "src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Infrastructures.csproj", "{65BB1332-83D7-441D-A559-9CA83E468C23}"
 EndProject

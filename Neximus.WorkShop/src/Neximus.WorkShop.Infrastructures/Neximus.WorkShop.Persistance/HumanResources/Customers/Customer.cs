@@ -1,4 +1,5 @@
 ﻿using Neximus.WorkShop.Persistance.HumanResources.Users;
+using Neximus.WorkShop.Persistence.HumanResources.Users;
 
 namespace Neximus.WorkShop.Persistance.HumanResources.Customers
 {

@@ -1,6 +1,7 @@
-﻿using Neximus.WorkShop.Persistance.Carts.Carts;
+﻿using Neximus.WorkShop.Domain.Carts.Carts;
+using Neximus.WorkShop.Persistance.HumanResources.Users;
 
-namespace Neximus.WorkShop.Persistance.HumanResources.Users
+namespace Neximus.WorkShop.Persistence.HumanResources.Users
 {
     public class User
     {
