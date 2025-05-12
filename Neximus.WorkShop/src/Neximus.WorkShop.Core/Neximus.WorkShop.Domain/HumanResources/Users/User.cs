@@ -18,6 +18,8 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public Gender Gender { get; set; }
         public DateTime RegistrationDate { get; set; }
         public UserProfilePicture ProfilePicture { get; set; }
+        public UserContactInfo UserContactInfo { get; set; }
         public HashSet<Cart> Carts { get; set; }
+        public HashSet<UserAddress> UserAddress { get; set; }
     }
 }
