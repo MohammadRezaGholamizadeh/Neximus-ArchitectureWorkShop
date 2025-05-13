@@ -12,7 +12,7 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
     {
         public void Configure(EntityTypeBuilder<Order> _)
         {
-            _.ToTable("Products");
+            _.ToTable("Order");
             _.HasKey(_ => _.Id);
             _.Property(_ => _.Id).ValueGeneratedOnAdd();
             _.Property(_ => _.UserId).IsRequired();

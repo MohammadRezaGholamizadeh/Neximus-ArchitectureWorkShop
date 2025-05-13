@@ -5,7 +5,7 @@ using Neximus.WorkShop.Persistance.HumanResources.Users;
 
 namespace Neximus.WorkShop.Persistance.HumanResources.Employees
 {
-     public class CartEntityMap : IEntityTypeConfiguration<Employee>
+     public class EmployeeEntityMap : IEntityTypeConfiguration<Employee>
    {
        public void Configure(EntityTypeBuilder<Employee> _)
        {
