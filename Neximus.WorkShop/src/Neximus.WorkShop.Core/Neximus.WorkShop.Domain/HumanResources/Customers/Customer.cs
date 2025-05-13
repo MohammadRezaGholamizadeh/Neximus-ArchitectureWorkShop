@@ -2,7 +2,7 @@
 
 namespace Neximus.WorkShop.Domain.HumanResources.Customers
 {
-    public class Customer : User
+    public class Employee : User
     {
         public User User { get; set; }
         public int OrderNumber { get; set; }
