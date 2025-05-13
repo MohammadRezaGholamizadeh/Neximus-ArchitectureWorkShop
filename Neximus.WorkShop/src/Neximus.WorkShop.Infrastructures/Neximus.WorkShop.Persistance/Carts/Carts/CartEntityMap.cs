@@ -13,13 +13,10 @@ namespace Neximus.WorkShop.Persistance.Carts.Carts
             _.ToTable("Carts");
 
             _.HasKey(_ => _.Id);
-
             _.Property(_ => _.Id).ValueGeneratedOnAdd();
-
             _.Property(_ => _.UserId).IsRequired().HasMaxLength(450);
             _.Property(_ => _.ModificationDate).IsRequired();
             _.Property(_ => _.CreationDate).IsRequired();
-
             _.HasOne(_ => _.User)
                 .WithMany(_ => _.Carts)
                 .HasForeignKey(_ => _.UserId);
