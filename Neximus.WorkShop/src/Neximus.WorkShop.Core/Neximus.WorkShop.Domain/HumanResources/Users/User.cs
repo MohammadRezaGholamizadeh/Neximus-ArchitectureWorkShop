@@ -1,4 +1,5 @@
 ﻿using Neximus.WorkShop.Domain.Carts.Carts;
+using Neximus.WorkShop.Domain.Orders.Orders;
 
 namespace Neximus.WorkShop.Domain.HumanResources.Users
 {
@@ -21,5 +22,6 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public UserContactInfo UserContactInfo { get; set; }
         public HashSet<Cart> Carts { get; set; }
         public HashSet<UserAddress> UserAddress { get; set; }
+        public HashSet<Order> Order { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Neximus.WorkShop.Domain.Products.Categories;
+﻿using Neximus.WorkShop.Domain.Orders.Items;
+using Neximus.WorkShop.Domain.Products.Categories;
 
 namespace Neximus.WorkShop.Domain.Products.Products
 {
@@ -13,6 +14,7 @@ namespace Neximus.WorkShop.Domain.Products.Products
         public int PaperCount { get; set; }
         public string AuthorName { get; set; }
         public DateTime PublishDate { get; set; }
+        public HashSet<ProductImage> ProductImage { get; set; }
         public string ISBN { get; set; }
         public decimal Discount { get; set; }
     }

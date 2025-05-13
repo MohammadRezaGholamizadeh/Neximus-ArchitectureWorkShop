@@ -21,6 +21,14 @@ namespace Neximus.WorkShop.Persistance.Orders.Items
             _.Property(_ => _.TotalPrice).IsRequired();
             _.Property(_ => _.TotalDiscount).IsRequired();
 
+
+            _.HasOne(a => a.Order)
+                .WithMany(a => a.OrderItems)
+                .HasForeignKey(a => a.OrderId);
+
+            _.HasOne(a => a.Product)
+                .WithMany()
+                .HasForeignKey(a => a.OrderId);
         }
     }
 
