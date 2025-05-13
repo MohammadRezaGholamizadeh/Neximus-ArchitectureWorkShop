@@ -18,7 +18,11 @@ namespace Neximus.WorkShop.Persistance.Products.Products
             _.Property(_ => _.ImageId).IsRequired();
             _.Property(_ => _.ImageExtension).IsRequired();
 
-       
+
+            _.HasOne(a => a.Product)
+                .WithMany(a => a.ProductImage)
+                .HasForeignKey(a => a.ProductId);
+
         }
     }
 

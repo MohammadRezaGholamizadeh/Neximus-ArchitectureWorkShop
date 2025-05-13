@@ -23,16 +23,16 @@ namespace Neximus.WorkShop.Persistance.Products.Products
             _.Property(_ => _. ISBN).IsRequired();
             _.Property(_ => _. Discount).IsRequired();
 
-            _.OwnsMany(b => b.ProductImage, _ =>
-            {
-                _.Property(_ => _.ImageId)
-                    .HasColumnName("ProfilePictureId")
-                    .HasMaxLength(450);
+            //_.OwnsMany(b => b.ProductImage, _ =>
+            //{
+            //    _.Property(_ => _.ImageId)
+            //        .HasColumnName("ProfilePictureId")
+            //        .HasMaxLength(450);
 
-                _.Property(_ => _.ImageExtension)
-                    .HasColumnName("ProfilePictureExtension")
-                    .HasMaxLength(10);
-            });
+            //    _.Property(_ => _.ImageExtension)
+            //        .HasColumnName("ProfilePictureExtension")
+            //        .HasMaxLength(10);
+            //});
         }
     }
 
