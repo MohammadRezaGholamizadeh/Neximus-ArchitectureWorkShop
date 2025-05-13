@@ -17,7 +17,12 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
             _.Property(_ => _.UserName);
             _.Property(_ => _.CreationDate);
             _.Property(_ => _.Gender);
-            _.HasOne(_ => _.ProfilePicture);
+            
+            _.OwnsOne(x => x.ProfilePicture, x => 
+            {
+                x.Property(xx => xx.ImageId).HasColumnName("ImageId");
+                x.Property(xx => xx.ImageExtension).HasColumnName("ImageExtension");
+            });
             _.HasMany(_ => _.Carts).WithOne(_=>_.User);
             
         }
