@@ -29,5 +29,4 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
     //    public decimal TotalPrice { get; set; }
     //    public decimal TotalDiscount { get; set; }
 }
-}
 
