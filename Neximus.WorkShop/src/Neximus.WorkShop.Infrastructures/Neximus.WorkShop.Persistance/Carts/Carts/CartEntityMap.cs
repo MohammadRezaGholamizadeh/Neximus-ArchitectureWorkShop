@@ -11,7 +11,6 @@ namespace Neximus.WorkShop.Persistance.Carts.Carts
         public void Configure(EntityTypeBuilder<Cart> _)
         {
             _.ToTable("Carts");
-
             _.HasKey(_ => _.Id);
             _.Property(_ => _.Id).ValueGeneratedOnAdd();
             _.Property(_ => _.UserId).IsRequired().HasMaxLength(450);

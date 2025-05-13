@@ -9,6 +9,7 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
     {
         public void Configure(EntityTypeBuilder<Order> _)
         {
+            _.ToTable("Order");
             _.HasKey(_ => _.Id);
             _.Property(_ => _.UserId);
             _.Property(_ => _.CreationDate);

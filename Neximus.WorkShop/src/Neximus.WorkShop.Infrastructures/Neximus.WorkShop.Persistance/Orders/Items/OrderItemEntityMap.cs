@@ -20,6 +20,7 @@ namespace Neximus.WorkShop.Persistance.Orders.Items
 
         public void Configure(EntityTypeBuilder<OrderItem> _)
         {
+            _.ToTable("OrderItem");
             _.HasKey(_ => _.Id);
             _.Property(_ => _.Quantity);
             _.Property(_ => _.OrderId);
