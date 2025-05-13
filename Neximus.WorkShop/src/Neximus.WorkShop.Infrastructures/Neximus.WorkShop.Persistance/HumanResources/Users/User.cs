@@ -1,4 +1,5 @@
-﻿using Neximus.WorkShop.Persistance.Carts.Carts;
+﻿using Neximus.WorkShop.Domain.Carts.Carts;
+using Neximus.WorkShop.Persistance.Carts.Carts;
 
 namespace Neximus.WorkShop.Persistance.HumanResources.Users
 {

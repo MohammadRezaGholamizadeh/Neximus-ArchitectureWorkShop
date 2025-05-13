@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neximus.WorkShop.Domain.Carts.Carts;
 using Neximus.WorkShop.Persistance.Products.Products;
 
 namespace Neximus.WorkShop.Persistance.Carts.Items
