@@ -2,7 +2,8 @@
 {
     public class UserProfilePicture
     {
-        public string ImageId { get; set; }
-        public string ImageExtension { get; set; }
+        public string ImageId { get; set; } = "";
+
+        public string ImageExtension { get; set; } = "";
     }
 }
