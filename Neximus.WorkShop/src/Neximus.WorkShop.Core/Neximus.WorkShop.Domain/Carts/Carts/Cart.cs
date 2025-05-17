@@ -5,6 +5,10 @@ namespace Neximus.WorkShop.Domain.Carts.Carts
 {
     public class Cart
     {
+        public Cart()
+        {
+            Items = new HashSet<CartItem>();
+        }
         public long Id { get; set; }
         public string UserId { get; set; }
         public User User { get; set; }

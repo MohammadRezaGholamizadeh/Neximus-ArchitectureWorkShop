@@ -9,6 +9,7 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public User()
         {
             Carts = new HashSet<Cart>();
+            Addresses = new HashSet<UserAddress>();
         }
 
         public string Id { get; set; }
@@ -20,9 +21,8 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public Gender Gender { get; set; }
         public DateTime RegistrationDate { get; set; }
         public UserProfilePicture ProfilePicture { get; set; }
-        public UserContactInfo UserContactInfo { get; set; }
+        public UserContactInfo ContactInfo { get; set; }
         public HashSet<Cart> Carts { get; set; }
-        public HashSet<UserAddress> UserAddress { get; set; }
-        public HashSet<Order> Order { get; set; }
+        public HashSet<UserAddress> Addresses{ get; set; }
     }
 }
