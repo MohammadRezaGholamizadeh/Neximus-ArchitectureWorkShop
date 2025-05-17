@@ -25,6 +25,7 @@ namespace Neximus.WorkShop.Migrations
 
             var runner = CreateRunner(connectionString, _connectionString);
             runner.MigrateUp();
+         //   runner.MigrateDown();
         }
 
         public static void CreateDatabaseSchema(string connectionString)

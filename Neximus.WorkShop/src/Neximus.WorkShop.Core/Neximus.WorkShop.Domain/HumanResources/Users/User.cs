@@ -3,6 +3,7 @@ using Neximus.WorkShop.Domain.Orders.Orders;
 
 namespace Neximus.WorkShop.Domain.HumanResources.Users
 {
+    
     public class User
     {
         public User()
