@@ -13,6 +13,7 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
                   .WithColumn("FirstName").AsString().NotNullable()
                   .WithColumn("LastName").AsString().NotNullable()
                   .WithColumn("IsActive").AsBoolean().NotNullable()
+                  .WithColumn("Gender").AsByte().NotNullable()
                   .WithColumn("CreationDate").AsDateTime().NotNullable()
                   .WithColumn("RegistrationDate").AsDateTime().NotNullable()
                   .WithColumn("MobileNumber").AsString().NotNullable()
@@ -30,10 +31,26 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
                 .WithColumn("Country").AsString().NotNullable()
                 .WithColumn("City").AsString().NotNullable()
                 .WithColumn("PostalCode").AsString().NotNullable();
+
+            Create.Table("Employees")
+                  .WithColumn("Id").AsString(450).NotNullable().PrimaryKey()
+                      .ForeignKey("FK_Employees_Users", "Users", "Id")
+                      .OnDelete(System.Data.Rule.Cascade)
+                  .WithColumn("PersonnelNumber").AsString(200).NotNullable()
+                  .WithColumn("EmergencyCode").AsString(200).NotNullable();
+
+            Create.Table("Customers")
+                  .WithColumn("Id").AsString(450).NotNullable().PrimaryKey()
+                      .ForeignKey("FK_Customers_Users", "Users", "Id")
+                      .OnDelete(System.Data.Rule.Cascade)
+                  .WithColumn("OrderNumber").AsInt32().NotNullable()
+                  .WithColumn("Identifire").AsString(200).NotNullable();
         }
 
         public override void Down()
         {
+            Delete.Table("Customers");
+            Delete.Table("Employees");
             Delete.Table("UserAddresses");
             Delete.Table("Users");
         }
