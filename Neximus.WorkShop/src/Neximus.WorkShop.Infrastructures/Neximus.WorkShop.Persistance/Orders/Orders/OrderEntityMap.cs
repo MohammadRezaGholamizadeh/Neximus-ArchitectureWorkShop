@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Neximus.WorkShop.Domain.Orders.Orders;
+<<<<<<< HEAD
 using Neximus.WorkShop.Persistance.HumanResources.Users;
+=======
+>>>>>>> origin/main
 
 namespace Neximus.WorkShop.Persistance.Orders.Orders
 {
@@ -9,6 +12,7 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
     {
         public void Configure(EntityTypeBuilder<Order> _)
         {
+<<<<<<< HEAD
             _.ToTable("Order");
             _.HasKey(_ => _.Id);
             _.Property(_ => _.UserId);
@@ -31,3 +35,24 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
     //    public decimal TotalDiscount { get; set; }
 }
 
+=======
+            _.ToTable("Orders");
+
+            _.HasKey(_ => _.Id);
+
+            _.Property(_ => _.Id).ValueGeneratedOnAdd();
+
+            _.Property(_ => _.UserId).IsRequired();
+            _.Property(_ => _.CreationDate).IsRequired();
+            _.Property(_ => _.PaymentDate).IsRequired();
+            _.Property(_ => _.TransactionNumber).IsRequired();
+            _.Property(_ => _.TotalPrice).IsRequired();
+            _.Property(_ => _.TotalDiscount).IsRequired();
+
+            _.HasOne(_ => _.User).WithMany()
+                .HasForeignKey(_ => _.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
+    }
+}
+>>>>>>> origin/main
