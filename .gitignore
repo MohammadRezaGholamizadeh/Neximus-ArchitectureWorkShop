@@ -290,3 +290,4 @@ src/*.RestApi/Properties/
 .config/
 /src/.vscode
 /Documents/Scenario.docx
+/Neximus.WorkShop/src/Neximus.WorkShop.Infrastructures/Neximus.WorkShop.Persistance/HumanResources/Customers/Customer/CustomerEntityMap.cs
