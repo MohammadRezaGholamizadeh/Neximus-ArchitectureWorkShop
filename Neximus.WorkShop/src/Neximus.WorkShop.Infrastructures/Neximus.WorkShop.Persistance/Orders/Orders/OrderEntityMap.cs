@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Neximus.WorkShop.Domain.Orders.Orders;
-<<<<<<< HEAD
-using Neximus.WorkShop.Persistance.HumanResources.Users;
-=======
->>>>>>> origin/main
 
 namespace Neximus.WorkShop.Persistance.Orders.Orders
 {
@@ -12,30 +8,6 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
     {
         public void Configure(EntityTypeBuilder<Order> _)
         {
-<<<<<<< HEAD
-            _.ToTable("Order");
-            _.HasKey(_ => _.Id);
-            _.Property(_ => _.UserId);
-            _.Property(_ => _.CreationDate);
-            _.Property(_ => _.PaymentDate);
-            _.Property(_ => _.TransactionNumber);
-            _.Property(_ => _.TotalPrice);
-            _.Property(_ => _.TotalDiscount);
-            _.HasOne(_ => _.User);
-        }
-    }
-    //{
-    //    public long Id { get; set; }
-    //    public string UserId { get; set; }
-    //    public User User { get; set; }
-    //    public DateTime CreationDate { get; set; }
-    //    public DateTime PaymentDate { get; set; }
-    //    public string TransactionNumber { get; set; }
-    //    public decimal TotalPrice { get; set; }
-    //    public decimal TotalDiscount { get; set; }
-}
-
-=======
             _.ToTable("Orders");
 
             _.HasKey(_ => _.Id);
@@ -55,4 +27,3 @@ namespace Neximus.WorkShop.Persistance.Orders.Orders
         }
     }
 }
->>>>>>> origin/main
