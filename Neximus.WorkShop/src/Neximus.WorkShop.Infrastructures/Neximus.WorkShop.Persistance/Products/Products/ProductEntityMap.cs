@@ -12,9 +12,9 @@ namespace Neximus.WorkShop.Persistance.Products.Products
             _.ToTable("Product");
             _.HasKey(x => x.Id);
             _.Property(_=>_.Id).ValueGeneratedOnAdd();
-            _.Property(x => x.Name).IsRequired().HasMaxLength(75);
+            _.Property(x => x.Name).IsRequired();
             _.Property(x => x.Price).IsRequired();
-            _.Property(x => x.ProductCategory).IsRequired();
+            _.Property(x => x.CategoryId).IsRequired();
             _.Property(x => x.Stock).IsRequired();
             _.Property(x => x.PaperCount).IsRequired();
             _.Property(x => x.PublishDate).IsRequired();

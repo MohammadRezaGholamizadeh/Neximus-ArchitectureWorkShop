@@ -12,9 +12,9 @@ namespace Neximus.WorkShop.Persistance.Products.Categories
             _.ToTable("ProductCategory");
             _.HasKey(x => x.Id);
             _.Property(x => x.Id).ValueGeneratedOnAdd();
-            _.Property(x=>x.Title).IsRequired().HasMaxLength(68);
-            _.Property(x=>x.Descripton).IsRequired().HasMaxLength(250);
-            _.Property(x=>x.Slug).IsRequired().HasMaxLength(65);
+            _.Property(x=>x.Title).IsRequired();
+            _.Property(x=>x.Descreption).IsRequired();
+            _.Property(x=>x.Slug).IsRequired();
         }
     }
 }

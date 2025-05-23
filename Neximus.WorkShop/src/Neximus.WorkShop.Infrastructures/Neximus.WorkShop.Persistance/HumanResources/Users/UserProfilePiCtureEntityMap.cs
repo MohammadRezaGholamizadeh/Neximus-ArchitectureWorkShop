@@ -14,8 +14,4 @@ public class UserProfilePiCtureEntityMap : IEntityTypeConfiguration<UserProfileP
         _.Property(x=>x.ImageExtension).IsRequired();
     }
 }
-//public class UserProfilePicture
-//{
-//    public string ImageId { get; set; }
-//    public string ImageExtension { get; set; }
-//}
+
