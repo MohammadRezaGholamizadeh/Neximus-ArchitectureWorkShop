@@ -1,5 +1,6 @@
-﻿using Neximus.WorkShop.Persistance.Orders.Orders;
-using Neximus.WorkShop.Persistance.Products.Products;
+﻿using Neximus.WorkShop.Persistance.Products.Products;
+using Neximus.WorkShop.Persistence.Orders.Orders;
+using Neximus.WorkShop.Persistence.Products.Products;
 
 namespace Neximus.WorkShop.Persistance.Orders.Items
 {

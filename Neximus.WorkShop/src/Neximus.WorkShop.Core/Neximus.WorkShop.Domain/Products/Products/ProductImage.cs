@@ -1,11 +1,15 @@
-﻿namespace Neximus.WorkShop.Domain.Products.Products
+﻿namespace Neximus.WorkShop.Domain.Products.Products;
+
+public class ProductImage
 {
-    public class ProductImage
-    {
-        public long Id { get; set; }
-        public long ProductId { get; set; }
-        public Product Product { get; set; }
-        public string ImageId { get; set; }
-        public string ImageExtension { get; set; }
-    }
+    public long Id { get; set; }
+
+    public long ProductId { get; set; }
+
+    public Product Product { get; set; }
+
+    public string ImageId { get; set; } = "";
+
+    public string ImageExtension { get; set; } = "";
 }
+
