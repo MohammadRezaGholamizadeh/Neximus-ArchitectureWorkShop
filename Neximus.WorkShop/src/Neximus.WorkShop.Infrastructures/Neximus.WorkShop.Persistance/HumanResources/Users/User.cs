@@ -1,22 +1,24 @@
-﻿using Neximus.WorkShop.Persistance.Carts.Carts;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neximus.WorkShop.Domain.HumanResources.Users;
+using Neximus.WorkShop.Persistance.Carts.Carts;
 
 namespace Neximus.WorkShop.Persistance.HumanResources.Users
 {
-    public class User
+
+    public class UserEntityMap : IEntityTypeConfiguration<User>
     {
-        public User()
+        public void Configure(EntityTypeBuilder<User> _)
         {
-            Carts = new HashSet<Cart>();
+            _.ToTable("User");
+            _.HasKey(x => x.Id);
+            _.Property(x => x.UserName).IsRequired().HasMaxLength(64);
+            _.Property(x => x.FirstName).IsRequired().HasMaxLength(128);
+            _.Property(x => x.LastName).IsRequired().HasMaxLength(128);
+            _.Property(x => x.Gender).IsRequired();
+            _.OwnsOne(x => x.ProfilePicture);
+            _.HasMany(x=>x.Carts).WithOne(x=>x.User).HasForeignKey(x=>x.UserId);
         }
-        public string Id { get; set; }
-        public string UserName { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime CreationDate { get; set; }
-        public Gender Gender { get; set; }
-        public DateTime RegistrationDate { get; set; }
-        public UserProfilePicture ProfilePicture { get; set; }
-        public HashSet<Cart> Carts { get; set; }
     }
+
 }

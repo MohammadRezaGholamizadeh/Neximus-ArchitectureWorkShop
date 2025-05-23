@@ -1,11 +1,20 @@
-﻿namespace Neximus.WorkShop.Persistance.Products.Products
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neximus.WorkShop.Domain.Products.Products;
+
+namespace Neximus.WorkShop.Persistance.Products.Products
 {
-    public class ProductImage
+
+    public class ProdcutImageEntityMap : IEntityTypeConfiguration<ProductImage>
     {
-        public long Id { get; set; }
-        public long ProductId { get; set; }
-        public Product Product { get; set; }
-        public string ImageId { get; set; }
-        public string ImageExtension { get; set; }
+        public void Configure(EntityTypeBuilder<ProductImage>_)
+        {
+            _.ToTable("ProductImages");
+            _.HasKey(x=>x.Id);
+            _.Property(x => x.Id).ValueGeneratedOnAdd();
+            _.Property(x=>x.ImageId).IsRequired();
+            _.Property(x=>x.ImageExtension).IsRequired();
+            _.HasOne(x => x.Product).WithMany().HasForeignKey(x=>x.ProductId).OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

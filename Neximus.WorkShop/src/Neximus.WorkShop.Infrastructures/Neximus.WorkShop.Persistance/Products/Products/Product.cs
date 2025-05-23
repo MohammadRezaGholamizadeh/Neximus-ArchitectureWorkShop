@@ -1,19 +1,26 @@
-﻿using Neximus.WorkShop.Persistance.Products.Categories;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neximus.WorkShop.Domain.Products.Products;
+using Neximus.WorkShop.Persistance.Products.Categories;
 
 namespace Neximus.WorkShop.Persistance.Products.Products
 {
-    public class Product
+    public class ProductEntityMap : IEntityTypeConfiguration<Product>
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Stock { get; set; }
-        public long CategoryId { get; set; }
-        public ProductCategory ProductCategory { get; set; }
-        public int PaperCount { get; set; }
-        public string AuthorName { get; set; }
-        public DateTime PublishDate { get; set; }
-        public string ISBN { get; set; }
-        public decimal Discount { get; set; }
+        public void Configure(EntityTypeBuilder<Product>_)
+        {
+            _.ToTable("Product");
+            _.HasKey(x => x.Id);
+            _.Property(_=>_.Id).ValueGeneratedOnAdd();
+            _.Property(x => x.Name).IsRequired().HasMaxLength(75);
+            _.Property(x => x.Price).IsRequired();
+            _.Property(x => x.ProductCategory).IsRequired();
+            _.Property(x => x.Stock).IsRequired();
+            _.Property(x => x.PaperCount).IsRequired();
+            _.Property(x => x.PublishDate).IsRequired();
+            _.Property(x => x.AuthorName).IsRequired();
+            _.Property(x => x.ISBN).IsRequired();
+            _.Property(x => x.Discount).IsRequired();
+        }
     }
 }

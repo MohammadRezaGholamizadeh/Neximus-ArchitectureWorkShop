@@ -1,11 +1,19 @@
-﻿using Neximus.WorkShop.Persistance.HumanResources.Users;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neximus.WorkShop.Domain.HumanResources.Employees;
+using Neximus.WorkShop.Persistance.HumanResources.Users;
 
 namespace Neximus.WorkShop.Persistance.HumanResources.Employees
 {
-    public class Employee : User
+    public class EmployeeEntityMap : IEntityTypeConfiguration<Employee>
     {
-        public User User { get; set; }
-        public string PersonnelNumber { get; set; }
-        public string EmergencyCode { get; set; }
+        public void Configure(EntityTypeBuilder<Employee>_)
+        {
+            _.ToTable("Employee");
+            _.Property(x=>x.PersonnelNumber).IsRequired();
+            _.Property(x=>x.EmergencyCode).IsRequired();
+            _.HasIndex(x => x.PersonnelNumber).IsUnique();
+
+        }
     }
 }

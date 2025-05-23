@@ -1,9 +1,17 @@
-﻿namespace Neximus.WorkShop.Persistance.HumanResources.Users
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Neximus.WorkShop.Domain.HumanResources.Users;
+
+namespace Neximus.WorkShop.Persistance.HumanResources.Users
 {
-    public class UserContactInfo
+    public class UserContactInfoEntityMap : IEntityTypeConfiguration<UserContactInfo>
     {
-        public string MobileNumber { get; set; }
-        public string CountryCallingCode { get; set; }
-        public string Email { get; set; }
+        public void Configure(EntityTypeBuilder<UserContactInfo>_)
+        {
+            _.ToTable("UserContactInfo");
+            _.Property(x=>x.MobileNumber).IsRequired().HasMaxLength(128);
+            _.Property(x=>x.CountryCallingCode).IsRequired().HasMaxLength(128);
+            _.Property(x=>x.Email).IsRequired().HasMaxLength(128);
+        }
     }
 }

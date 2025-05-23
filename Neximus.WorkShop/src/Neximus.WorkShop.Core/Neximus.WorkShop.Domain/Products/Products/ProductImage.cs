@@ -7,5 +7,6 @@
         public Product Product { get; set; }
         public string ImageId { get; set; }
         public string ImageExtension { get; set; }
+
     }
 }

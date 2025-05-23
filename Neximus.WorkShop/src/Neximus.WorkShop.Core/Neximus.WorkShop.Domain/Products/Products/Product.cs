@@ -15,5 +15,7 @@ namespace Neximus.WorkShop.Domain.Products.Products
         public DateTime PublishDate { get; set; }
         public string ISBN { get; set; }
         public decimal Discount { get; set; }
+
+        public HashSet<ProductImage> Images { get; set; }
     }
 }
