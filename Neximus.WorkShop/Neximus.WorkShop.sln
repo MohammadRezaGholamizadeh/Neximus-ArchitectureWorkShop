@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neximus.WorkShop.Migrations
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neximus.WorkShop.Persentaions", "Neximus.WorkShop.Persentaions\Neximus.WorkShop.Persentaions.csproj", "{9C96C8D8-2742-48AD-878B-842DE91E7D61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neximous.WorkShop.UnitTests", "tests\Neximous.WorkShop.UnitTests\Neximous.WorkShop.UnitTests.csproj", "{97B256B9-3EE8-4760-9660-FD40135DF88E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{9C96C8D8-2742-48AD-878B-842DE91E7D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C96C8D8-2742-48AD-878B-842DE91E7D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C96C8D8-2742-48AD-878B-842DE91E7D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97B256B9-3EE8-4760-9660-FD40135DF88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B256B9-3EE8-4760-9660-FD40135DF88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B256B9-3EE8-4760-9660-FD40135DF88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B256B9-3EE8-4760-9660-FD40135DF88E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{65BB1332-83D7-441D-A559-9CA83E468C23} = {EEAFC0E1-79D7-40CE-A87F-0C492C4BE9FF}
 		{7FD590D0-15E5-40C9-97E8-94A1B3B75DB0} = {EEAFC0E1-79D7-40CE-A87F-0C492C4BE9FF}
 		{9C96C8D8-2742-48AD-878B-842DE91E7D61} = {43BCB668-775F-4221-AAD1-673401480428}
+		{97B256B9-3EE8-4760-9660-FD40135DF88E} = {751FEC69-F4B0-469D-B822-961E70FB8162}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BADDBB45-3C65-4330-95D3-BFCB20C91521}
