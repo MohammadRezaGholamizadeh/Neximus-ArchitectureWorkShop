@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Neximus.WorkShop.Domain\Neximus.WorkShop.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="HumanResources\Customers\Exceptions\" />
+    <Folder Include="HumanResources\Employees\" />
+    <Folder Include="HumanResources\Users\" />
+  </ItemGroup>
+
 </Project>

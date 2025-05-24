@@ -1,6 +1,6 @@
 ﻿namespace Neximus.WorkShop.Services.Infrastructures.Contracts
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IRepository
     {
         Task Save();
         Task BeginTransaction();

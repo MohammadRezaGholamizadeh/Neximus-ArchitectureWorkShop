@@ -1,19 +1,28 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Neximus.WorkShop.Domain.HumanResources.Customers;
+using Neximus.WorkShop.Domain.HumanResources.Employees;
 
 namespace Neximus.WorkShop.Persistance.Infrastructures
 {
     public class EFDataContext : DbContext
     {
 
-        public EFDataContext(DbContextOptions<EFDataContext> options) : base(options)
+        public DbSet<Customer> Customres { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+
+
+
+        public EFDataContext(
+               DbContextOptions<EFDataContext> options)
+               : base(options)
         {
         }
 
-        public EFDataContext(string connectionString)
-            : this(new DbContextOptionsBuilder<EFDataContext>()
-                   .UseSqlServer(connectionString)
-                   .Options)
+        public EFDataContext(
+            string connectionString) : this(
+                new DbContextOptionsBuilder<EFDataContext>()
+                .UseSqlServer(connectionString).Options)
         {
         }
 
