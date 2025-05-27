@@ -1,0 +1,3 @@
+{
+  "DbConnectionString": "server=.;database=NeximusArchitecture-tests;Trusted_connection = true;TrustServerCertificate=True"
+}

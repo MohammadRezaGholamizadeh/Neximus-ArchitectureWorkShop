@@ -19,8 +19,8 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
                   .WithColumn("MobileNumber").AsString().NotNullable()
                   .WithColumn("CountryCallingCode").AsString().NotNullable()
                   .WithColumn("Email").AsString().NotNullable()
-                  .WithColumn("ImageId").AsString().NotNullable()
-                  .WithColumn("ImageExtension").AsString().NotNullable();
+                  .WithColumn("ProfilePictureId").AsString().NotNullable()
+                  .WithColumn("ProfilePictureExtension").AsString().NotNullable();
 
             Create.Table("UserAddresses")
                 .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()

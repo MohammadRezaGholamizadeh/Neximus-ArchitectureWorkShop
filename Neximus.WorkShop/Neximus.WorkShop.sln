@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neximus.WorkShop.Migrations
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neximus.WorkShop.Persentaions", "src\Neximus.WorkShop.Persentations\Neximus.WorkShop.Persentaions\Neximus.WorkShop.Persentaions.csproj", "{08115044-E404-4BAB-83A4-787B946969CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neximous.WorkShop.UnitTests", "tests\Neximous.WorkShop.UnitTests\Neximous.WorkShop.UnitTests.csproj", "{BF46D02F-C9DA-4BA2-BF12-FB808A8F2BEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neximous.WorkShop.UnitTests", "tests\Neximous.WorkShop.UnitTests\Neximous.WorkShop.UnitTests.csproj", "{BF46D02F-C9DA-4BA2-BF12-FB808A8F2BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neximous.WorkShop.TestTools", "tests\Neximous.WorkShop.TestTools\Neximous.WorkShop.TestTools.csproj", "{9307D1C5-D5BA-4AF8-BC03-ECD8A35266CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{BF46D02F-C9DA-4BA2-BF12-FB808A8F2BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF46D02F-C9DA-4BA2-BF12-FB808A8F2BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF46D02F-C9DA-4BA2-BF12-FB808A8F2BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9307D1C5-D5BA-4AF8-BC03-ECD8A35266CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9307D1C5-D5BA-4AF8-BC03-ECD8A35266CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9307D1C5-D5BA-4AF8-BC03-ECD8A35266CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9307D1C5-D5BA-4AF8-BC03-ECD8A35266CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{7FD590D0-15E5-40C9-97E8-94A1B3B75DB0} = {EEAFC0E1-79D7-40CE-A87F-0C492C4BE9FF}
 		{08115044-E404-4BAB-83A4-787B946969CC} = {43BCB668-775F-4221-AAD1-673401480428}
 		{BF46D02F-C9DA-4BA2-BF12-FB808A8F2BEC} = {751FEC69-F4B0-469D-B822-961E70FB8162}
+		{9307D1C5-D5BA-4AF8-BC03-ECD8A35266CE} = {751FEC69-F4B0-469D-B822-961E70FB8162}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BADDBB45-3C65-4330-95D3-BFCB20C91521}
