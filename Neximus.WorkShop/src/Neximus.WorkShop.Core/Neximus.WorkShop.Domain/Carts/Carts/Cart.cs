@@ -1,4 +1,5 @@
-﻿using Neximus.WorkShop.Domain.HumanResources.Users;
+﻿using Neximus.WorkShop.Domain.Carts.Items;
+using Neximus.WorkShop.Domain.HumanResources.Users;
 
 namespace Neximus.WorkShop.Domain.Carts.Carts
 {
@@ -9,5 +10,6 @@ namespace Neximus.WorkShop.Domain.Carts.Carts
         public User User { get; set; }
         public DateTime ModificationDate { get; set; }
         public DateTime CreationDate { get; set; }
+        public ICollection<CartItem> CartItems { get; set; }
     }
 }

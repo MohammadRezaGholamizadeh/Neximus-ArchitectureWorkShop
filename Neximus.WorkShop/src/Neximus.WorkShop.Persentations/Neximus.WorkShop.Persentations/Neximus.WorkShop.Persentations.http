@@ -1,0 +1,6 @@
+@Neximus.WorkShop.Persentations_HostAddress = http://localhost:5105
+
+GET {{Neximus.WorkShop.Persentations_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

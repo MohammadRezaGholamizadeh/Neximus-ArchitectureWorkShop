@@ -1,4 +1,5 @@
 ﻿using Neximus.WorkShop.Domain.HumanResources.Users;
+using Neximus.WorkShop.Domain.Orders.Items;
 
 namespace Neximus.WorkShop.Domain.Orders.Orders
 {
@@ -12,5 +13,6 @@ namespace Neximus.WorkShop.Domain.Orders.Orders
         public string TransactionNumber { get; set; }
         public decimal TotalPrice { get; set; }
         public decimal TotalDiscount { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
     }
 }

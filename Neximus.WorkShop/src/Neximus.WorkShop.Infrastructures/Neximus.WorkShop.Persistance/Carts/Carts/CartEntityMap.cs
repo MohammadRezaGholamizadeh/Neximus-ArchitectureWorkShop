@@ -20,9 +20,12 @@ namespace Neximus.WorkShop.Persistance.Carts.Carts
             _.Property(_ => _.ModificationDate).IsRequired();
             _.Property(_ => _.CreationDate).IsRequired();
 
+            //relation
             _.HasOne(_ => _.User)
                 .WithMany(_ => _.Carts)
                 .HasForeignKey(_ => _.UserId);
+
+
         }
     }
 }

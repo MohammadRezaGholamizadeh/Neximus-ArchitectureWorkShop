@@ -1,6 +1,6 @@
 ﻿namespace Neximus.WorkShop.Persistance.HumanResources.Users
 {
-    public enum Gender
+    public enum Gender : byte
     {
         None = 0,
         Male = 1,

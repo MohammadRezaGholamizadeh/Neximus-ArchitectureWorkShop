@@ -1,4 +1,6 @@
-﻿using Neximus.WorkShop.Domain.Carts.Carts;
+﻿using System.Reflection.PortableExecutable;
+using Neximus.WorkShop.Domain.Carts.Carts;
+using Neximus.WorkShop.Domain.Orders.Orders;
 
 namespace Neximus.WorkShop.Domain.HumanResources.Users
 {
@@ -7,6 +9,8 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public User()
         {
             Carts = new HashSet<Cart>();
+            Orders = new HashSet<Order>();
+            UserAddresses = new HashSet<UserAddress>();
         }
 
         public string Id { get; set; }
@@ -18,6 +22,9 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public Gender Gender { get; set; }
         public DateTime RegistrationDate { get; set; }
         public UserProfilePicture ProfilePicture { get; set; }
+        public UserContactInfo ContactInfo { get; set; }
         public HashSet<Cart> Carts { get; set; }
+        public HashSet<UserAddress> UserAddresses { get; set; }
+        public HashSet<Order> Orders { get; set; }
     }
 }

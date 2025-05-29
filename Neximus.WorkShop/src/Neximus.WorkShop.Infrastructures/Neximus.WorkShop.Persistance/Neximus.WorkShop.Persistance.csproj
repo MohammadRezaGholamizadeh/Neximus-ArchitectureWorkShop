@@ -13,6 +13,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Neximus.WorkShop.Core\Neximus.WorkShop.Domain\Neximus.WorkShop.Domain.csproj" />
+	  <ProjectReference Include="..\..\Neximus.WorkShop.Core\Neximus.WorkShop.Services\Neximus.WorkShop.Services.csproj" />
 	</ItemGroup>
 
 </Project>

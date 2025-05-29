@@ -1,4 +1,6 @@
-﻿using Neximus.WorkShop.Domain.Products.Categories;
+﻿using Neximus.WorkShop.Domain.Carts.Items;
+using Neximus.WorkShop.Domain.Orders.Items;
+using Neximus.WorkShop.Domain.Products.Categories;
 
 namespace Neximus.WorkShop.Domain.Products.Products
 {
@@ -15,5 +17,8 @@ namespace Neximus.WorkShop.Domain.Products.Products
         public DateTime PublishDate { get; set; }
         public string ISBN { get; set; }
         public decimal Discount { get; set; }
+        public HashSet<CartItem> CartItems { get; set; }
+        public HashSet<OrderItem> OrderItems { get; set; }
+        public HashSet<ProductImage> ProductImages { get; set; }
     }
 }
