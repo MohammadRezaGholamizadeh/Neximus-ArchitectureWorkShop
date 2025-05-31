@@ -1,35 +1,14 @@
 ﻿using FluentAssertions;
-using FluentGenerator;
 using Microsoft.EntityFrameworkCore;
-using Moq;
 using Neximous.WorkShop.TestTools.HumanResources.Customers;
 using Neximous.WorkShop.TestTools.Infrastructures;
-using Neximus.WorkShop.Domain.HumanResources.Customers;
 using Neximus.WorkShop.Domain.HumanResources.Users;
-using Neximus.WorkShop.Persistance.Infrastructures;
 using Neximus.WorkShop.Services.HumanResources.Customers.Contracts;
 
 namespace Neximous.WorkShop.UnitTests.HumanResources.Customers
 {
-    public class CustomerServiceTests
+    public class CustomerServiceTests : IntegrationSut<ICustomerService>
     {
-        public ICustomerService Sut { get; }
-        public EFDataContext Context { get; }
-
-        public CustomerServiceTests()
-        {
-            var iCustomerRepositoryMoq = new Mock<ICustomerRepository>();
-            iCustomerRepositoryMoq.Setup(_ => _.Add(It.IsAny<Customer>())).Throws<Exception>();
-
-            var mockedParameter = AutoServiceTools.MockObjectListCreator();
-            mockedParameter.AddMockedParameter(typeof(ICustomerRepository), iCustomerRepositoryMoq.Object);
-
-            var integrationSut = new IntegrationSut<ICustomerService>(mockedParameter);
-
-            Sut = integrationSut.Sut;
-            Context = integrationSut.Context;
-        }
-
         [Fact]
         public async Task Add_Customer_Properly()
         {
@@ -54,6 +33,35 @@ namespace Neximous.WorkShop.UnitTests.HumanResources.Customers
             expectedAddress.City.Should().Be(dtoAddresses.city);
             expectedAddress.Country.Should().Be(dtoAddresses.country);
             expectedAddress.PostalCode.Should().Be(dtoAddresses.postalCode);
+        }
+
+        [Fact]
+        public async Task Update_Customer_properly()
+        {
+            var customer = Generator.Engine.Give_Customer()
+                                           .UpdateWithValue(_ => _.FirstName = "محمدرضا");
+            Save(customer);
+
+            var dto = Generator.Engine.Give_Customer_UpdateDto()
+                                      .UpdateWithValue(_=>_.FirstName = "محمد چه رضایی");
+
+            await Sut.Update(customer.Id, dto);
+
+            var expected = await Context.Customres.SingleOrDefaultAsync();
+            expected.UserName.Should().Be(customer.UserName);
+            expected.FirstName.Should().Be(dto.FirstName);
+            expected.LastName.Should().Be(customer.LastName);
+            expected.Gender.Should().Be(customer.Gender);
+            expected.ContactInfo.MobileNumber.Should().Be(customer.ContactInfo.MobileNumber);
+            expected.ContactInfo.CountryCallingCode.Should().Be(customer.ContactInfo.CountryCallingCode);
+            expected.ContactInfo.Email.Should().Be(customer.ContactInfo.Email);
+
+            var expectedAddress = expected.Addresses.Single();
+            var dtoAddresses = customer.Addresses.Single();
+            expectedAddress.Address.Should().Be(dtoAddresses.Address);
+            expectedAddress.City.Should().Be(dtoAddresses.City);
+            expectedAddress.Country.Should().Be(dtoAddresses.Country);
+            expectedAddress.PostalCode.Should().Be(dtoAddresses.PostalCode);
         }
     }
 }

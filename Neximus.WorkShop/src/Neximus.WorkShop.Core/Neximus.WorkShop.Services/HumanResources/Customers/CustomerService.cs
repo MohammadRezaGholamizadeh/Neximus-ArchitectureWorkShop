@@ -2,6 +2,7 @@
 using Neximus.WorkShop.Domain.HumanResources.Users;
 using Neximus.WorkShop.Services.HumanResources.Customers.Contracts;
 using Neximus.WorkShop.Services.HumanResources.Customers.Contracts.Dtos;
+using Neximus.WorkShop.Services.HumanResources.Customers.Exceptions;
 using Neximus.WorkShop.Services.Infrastructures.Contracts;
 
 namespace Neximus.WorkShop.Services.HumanResources.Customers
@@ -62,6 +63,59 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers
             await _unitOfWork.Save();
 
             return customer.Id;
+        }
+
+        public async Task Update(string id, UpdateCustomerDto dto)
+        {
+            var customer = await _repository.FindById(id);
+
+            GuardIfCustomerNotExist(customer!);
+            GuardIfCustomerNotInActiveStatus(customer!.IsActive);
+
+            customer.UserName = dto.UserName;
+            customer.FirstName = dto.FirstName;
+            customer.LastName = dto.LastName;
+            customer.Gender = dto.Gender;
+
+            customer.ContactInfo.MobileNumber = dto.ContactInfo.MobileNumber;
+            customer.ContactInfo.CountryCallingCode = dto.ContactInfo.CountryCallingCode;
+            customer.ContactInfo.Email = dto.ContactInfo.Email;
+
+            customer.ProfilePicture.ImageId = dto.ProfilePicture.ImageId;
+            customer.ProfilePicture.ImageExtension = dto.ProfilePicture.ImageExtension;
+
+            customer.Addresses
+                    .RemoveWhere(
+                        _ => dto.Addresses
+                                .DeletedIds
+                                .Contains(_.Id));
+            customer.Addresses
+                    .UnionWith(
+                        dto.Addresses
+                           .NewAddresses
+                           .Select(_ =>
+                              new UserAddress()
+                              {
+                                  Address = _.address,
+                                  Country = _.country,
+                                  City = _.city,
+                                  PostalCode = _.postalCode,
+                              })
+                           .ToHashSet());
+
+            await _unitOfWork.Save();
+        }
+
+        private static void GuardIfCustomerNotInActiveStatus(bool isActive)
+        {
+            if (!isActive)
+                throw new CustomerIsInActiveStateException();
+        }
+
+        private static void GuardIfCustomerNotExist(Customer customer)
+        {
+            if (customer == null)
+                throw new CustomerNotExistException();
         }
     }
 }

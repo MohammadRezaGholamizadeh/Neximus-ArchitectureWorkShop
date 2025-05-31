@@ -10,9 +10,9 @@ namespace Neximous.WorkShop.TestTools.Infrastructures
     public class AutoServiceCreator<T> : AutoServiceConfiguration
     {
         public override void ServicesConfiguration(
-            ContainerBuilder container,
-            Dictionary<Type, object> mockedServiceParameters,
-            DbContext context)
+           ContainerBuilder container,
+           Dictionary<Type, object> mockedServiceParameters,
+           DbContext context)
         {
             container.RegisterAssemblyTypes(
                 typeof(IService).Assembly)

@@ -6,5 +6,6 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers.Contracts
     public interface ICustomerRepository : IRepository
     {
         void Add(Customer customer);
+        Task<Customer?> FindById(string id);
     }
 }

@@ -19,7 +19,15 @@ namespace Neximous.WorkShop.TestTools.Infrastructures
             Context = GetContext<EFDataContext>();
         }
 
+        public void Save(object entity)
+        {
+            Context.Add(entity).Context.SaveChanges();
+        }
+
         public T Sut { get; }
         public EFDataContext Context { get; }
+        public EFDataContext ReadContext => 
+            new AutoServiceCreator<T>()
+                .SqlServerConfiguration() as EFDataContext;
     }
 }

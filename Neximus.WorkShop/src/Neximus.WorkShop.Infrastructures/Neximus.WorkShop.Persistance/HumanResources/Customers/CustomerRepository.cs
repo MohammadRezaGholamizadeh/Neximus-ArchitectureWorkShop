@@ -18,5 +18,10 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Customers
         {
             _customer.Add(customer);
         }
+
+        public async Task<Customer?> FindById(string id)
+        {
+            return await _customer.FindAsync(id);
+        }
     }
 }

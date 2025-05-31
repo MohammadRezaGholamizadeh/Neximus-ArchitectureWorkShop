@@ -2,7 +2,7 @@
 
 namespace Neximus.WorkShop.Services.HumanResources.Customers.Contracts.Dtos
 {
-    public class AddCustomerContactInfoDto
+    public class UpdateCustomerContactInformationDto
     {
         [Required]
         public string MobileNumber { get; set; }
