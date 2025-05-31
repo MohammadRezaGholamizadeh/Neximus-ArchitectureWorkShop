@@ -11,6 +11,7 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
             _.ToTable("Users");
             _.HasKey(_ => _.Id);
 
+            _.Property(_ => _.Id).ValueGeneratedOnAdd();
             _.Property(_ => _.UserName).IsRequired();
             _.Property(_ => _.FirstName).IsRequired();
             _.Property(_ => _.LastName).IsRequired();
@@ -45,6 +46,11 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
                     _.Property(_ => _.CountryCallingCode)
                      .HasColumnName("CountryCallingCode")
                      .HasMaxLength(4);
+
+                    _.Property(_ => _.Email)
+                    .HasColumnName("Email")
+                    .HasMaxLength(200);
+
                 });
 
             _.HasMany(_ => _.Addresses)
