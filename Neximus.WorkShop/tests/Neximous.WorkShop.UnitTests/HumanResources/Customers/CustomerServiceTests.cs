@@ -4,6 +4,7 @@ using Neximous.WorkShop.TestTools.HumanResources.Customers;
 using Neximous.WorkShop.TestTools.Infrastructures;
 using Neximus.WorkShop.Domain.HumanResources.Users;
 using Neximus.WorkShop.Services.HumanResources.Customers.Contracts;
+using Neximus.WorkShop.Services.HumanResources.Customers.Exceptions;
 
 namespace Neximous.WorkShop.UnitTests.HumanResources.Customers
 {
@@ -43,7 +44,7 @@ namespace Neximous.WorkShop.UnitTests.HumanResources.Customers
             Save(customer);
 
             var dto = Generator.Engine.Give_Customer_UpdateDto()
-                                      .UpdateWithValue(_=>_.FirstName = "محمد چه رضایی");
+                                      .UpdateWithValue(_ => _.FirstName = "محمد چه رضایی");
 
             await Sut.Update(customer.Id, dto);
 
@@ -62,6 +63,65 @@ namespace Neximous.WorkShop.UnitTests.HumanResources.Customers
             expectedAddress.City.Should().Be(dtoAddresses.City);
             expectedAddress.Country.Should().Be(dtoAddresses.Country);
             expectedAddress.PostalCode.Should().Be(dtoAddresses.PostalCode);
+        }
+
+        [Fact]
+        public async Task Delete_Customer_byId_properly()
+        {
+            var customer = Generator.Engine.Give_Customer()
+                                           .UpdateWithValue(_ => _.FirstName = "محمدرضا")
+                                           .UpdateWithValue(_ => _.IsActive = false);
+            Save(customer);
+
+            await Sut.DeleteById(customer.Id);
+
+            var expected = await Context.Customres.ToListAsync();
+            expected.Should().HaveCount(0);
+        }
+
+        [Theory]
+        [InlineData("invalidId")]
+        public async Task Delete_Customer_byId_Shoud_Throw_Exception_when_Customer_not_exist(string invalidId)
+        {
+            var customer = Generator.Engine.Give_Customer().UpdateWithValue(_ => _.Id = "1");
+            Save(customer);
+
+            var expectedException =
+                () => Sut.DeleteById(invalidId);
+
+            await expectedException.Should().ThrowExactlyAsync<CustomerNotExistException>();
+
+            var expected = await Context.Customres.SingleOrDefaultAsync();
+            expected.UserName.Should().Be(customer.UserName);
+            expected.FirstName.Should().Be(customer.FirstName);
+            expected.LastName.Should().Be(customer.LastName);
+            expected.Gender.Should().Be(customer.Gender);
+            expected.ContactInfo.MobileNumber.Should().Be(customer.ContactInfo.MobileNumber);
+            expected.ContactInfo.CountryCallingCode.Should().Be(customer.ContactInfo.CountryCallingCode);
+            expected.ContactInfo.Email.Should().Be(customer.ContactInfo.Email);
+        }
+
+        [Fact]
+        public async Task Delete_Customer_byId_Should_throw_exception_when_customer_be_active()
+        {
+            var customer = Generator.Engine
+                                    .Give_Customer()
+                                    .UpdateWithValue(_ => _.IsActive = true);
+            Save(customer);
+
+            var expectedException =
+                () => Sut.DeleteById(customer.Id);
+
+            await expectedException.Should().ThrowExactlyAsync<CustomerBeActiveException>();
+
+            var expected = await Context.Customres.SingleOrDefaultAsync();
+            expected.UserName.Should().Be(customer.UserName);
+            expected.FirstName.Should().Be(customer.FirstName);
+            expected.LastName.Should().Be(customer.LastName);
+            expected.Gender.Should().Be(customer.Gender);
+            expected.ContactInfo.MobileNumber.Should().Be(customer.ContactInfo.MobileNumber);
+            expected.ContactInfo.CountryCallingCode.Should().Be(customer.ContactInfo.CountryCallingCode);
+            expected.ContactInfo.Email.Should().Be(customer.ContactInfo.Email);
         }
     }
 }

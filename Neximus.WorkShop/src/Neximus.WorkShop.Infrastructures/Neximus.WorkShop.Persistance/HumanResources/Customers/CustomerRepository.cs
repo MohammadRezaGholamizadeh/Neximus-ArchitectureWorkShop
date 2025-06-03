@@ -19,9 +19,19 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Customers
             _customer.Add(customer);
         }
 
+        public void Delete(Customer customer)
+        {
+            _customer.Remove(customer);
+        }
+
         public async Task<Customer?> FindById(string id)
         {
             return await _customer.FindAsync(id);
+        }
+
+        public void Update(Customer customer)
+        {
+            _customer.Update(customer);
         }
     }
 }

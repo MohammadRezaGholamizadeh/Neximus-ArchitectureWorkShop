@@ -20,6 +20,7 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers
             _unitOfWork = unitOfWork;
         }
 
+
         public async Task<string> Add(AddCustomerDto dto)
         {
             var customer = new Customer()
@@ -103,7 +104,31 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers
                               })
                            .ToHashSet());
 
+            _repository.Update(customer);
+
             await _unitOfWork.Save();
+        }
+
+        public async Task DeleteById(string id)
+        {
+            var customer = await _repository.FindById(id);
+            GuardIfCustomerNotExist(customer);
+            GuardIfCustomerBeActive(customer!.IsActive);
+
+            _repository.Delete(customer);
+
+            await _unitOfWork.Save();
+        }
+
+
+
+
+
+
+        private static void GuardIfCustomerBeActive(bool isActive)
+        {
+            if (isActive)
+                throw new CustomerBeActiveException();
         }
 
         private static void GuardIfCustomerNotInActiveStatus(bool isActive)
@@ -112,7 +137,7 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers
                 throw new CustomerIsInActiveStateException();
         }
 
-        private static void GuardIfCustomerNotExist(Customer customer)
+        private static void GuardIfCustomerNotExist(Customer? customer)
         {
             if (customer == null)
                 throw new CustomerNotExistException();

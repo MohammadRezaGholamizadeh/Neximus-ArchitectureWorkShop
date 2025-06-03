@@ -6,6 +6,8 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers.Contracts
     public interface ICustomerRepository : IRepository
     {
         void Add(Customer customer);
+        void Delete(Customer customer);
         Task<Customer?> FindById(string id);
+        void Update(Customer customer);
     }
 }
