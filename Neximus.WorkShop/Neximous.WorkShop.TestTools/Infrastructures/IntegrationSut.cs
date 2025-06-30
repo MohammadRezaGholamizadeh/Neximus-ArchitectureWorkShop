@@ -1,0 +1,33 @@
+using FluentGenerator;
+using Neximus.WorkShop.Persistance.Infrastructures;
+
+namespace Neximous.WorkShop.TestTools.Infrastructures;
+
+public class IntegrationSut<T> : AutoServiceCreator<T> where T : class
+{
+    public T Sut { get; set; }
+    public EFDataContext Context { get; set; }
+
+    public EFDataContext ReadContext => new AutoServiceCreator<T>()
+        .SqlServerConfiguration() as EFDataContext;
+
+    public IntegrationSut()
+    {
+        Sut = CreateService<T>(dataBase: FluentGenerator.DataBaseType.SqlServerDataBase);
+        Context = GetContext<EFDataContext>();
+    }
+
+    public IntegrationSut(Dictionary<Type, object> mockedObjects)
+    {
+        MockedObjects = mockedObjects;
+        Sut = CreateService<T>(
+            dataBase: FluentGenerator.DataBaseType.SqlLiteDataBase
+        );
+        Context = GetContext<EFDataContext>();
+    }
+
+    public void Save(object entity)
+    {
+        Context.Add(entity).Context.SaveChanges();
+    }
+}

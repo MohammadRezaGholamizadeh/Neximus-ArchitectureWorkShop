@@ -56,5 +56,15 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers
 
             return customer.Id;
         }
+
+        public Task DeleteById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(string id, UpdateCustomerDTO dto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,13 +9,23 @@
 
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.2"/>
+        <PackageReference Include="FluentAssertions" Version="8.3.0" />
+        <PackageReference Include="FluentGenerator" Version="2024.1.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0"/>
+        <PackageReference Include="Moq" Version="4.20.72" />
         <PackageReference Include="xunit" Version="2.9.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2"/>
     </ItemGroup>
 
     <ItemGroup>
         <Using Include="Xunit"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Neximous.WorkShop.TestTools\Neximous.WorkShop.TestTools.csproj" />
+      <ProjectReference Include="..\src\Neximus.WorkShop.Core\Neximus.WorkShop.Services\Neximus.WorkShop.Services.csproj" />
+      <ProjectReference Include="..\src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Migrations\Neximus.WorkShop.Migrations.csproj" />
+      <ProjectReference Include="..\src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Persistance\Neximus.WorkShop.Persistance.csproj" />
     </ItemGroup>
 
 </Project>

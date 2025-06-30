@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\src\Neximus.WorkShop.Core\Neximus.WorkShop.Services\Neximus.WorkShop.Services.csproj" />
+      <ProjectReference Include="..\src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Persistance\Neximus.WorkShop.Persistance.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="8.3.0" />
+      <PackageReference Include="FluentGenerator" Version="2024.1.0" />
+    </ItemGroup>
+
+</Project>

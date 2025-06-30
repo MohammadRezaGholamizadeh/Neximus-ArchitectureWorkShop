@@ -1,5 +1,5 @@
 {
   "MigrationSettings": {
-    "ConnectionString": "server=.;database=Neximus;User Id=sa;Password=asad@1384;"
+    "ConnectionString": "server=localhost;database=Neximus;User Id=sa;Password=asad@1384;TrustServerCertificate=true;"
   }
 }
