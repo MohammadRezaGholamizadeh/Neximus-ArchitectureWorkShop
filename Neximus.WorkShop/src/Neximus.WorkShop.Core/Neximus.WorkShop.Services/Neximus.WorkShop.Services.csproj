@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Neximus.WorkShop.Domain\Neximus.WorkShop.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="HumanResources\Employees\" />
+    <Folder Include="HumanResources\Users\" />
+  </ItemGroup>
+
 </Project>
