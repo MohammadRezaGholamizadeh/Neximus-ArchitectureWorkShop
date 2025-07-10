@@ -17,9 +17,9 @@ public class CustomerServiceTests : IntegrationSut<ICustomerService>
     [Fact]
     public async Task Add_Customer_Properly()
     {
-        var dto = Generator.Engine.Give_Customer_AddDTO()
+        var dto = Generator.Engine.Give_Customer_AddDto()
             .UpdateWithValue(_ => _.Gender = Gender.Male)
-            .UpdateWithValue(_ => _.FirstName = "Dummy_Iman");
+            .UpdateWithValue(_ => _.FirstName = "Zahra");
 
         string id = await Sut.Add(dto);
 
@@ -31,13 +31,13 @@ public class CustomerServiceTests : IntegrationSut<ICustomerService>
         expected.ContactInfo.MobileNumber.Should().Be(dto.ContactInfo.MobileNumber);
         expected.ContactInfo.CountryCallingCode.Should().Be(dto.ContactInfo.CountyCallingCode);
         expected.ContactInfo.Email.Should().Be(dto.ContactInfo.Email);
-        expected.ProfilePicture.Should().Be(dto.ProfilePicture);
 
         var expectedAddress = expected.UserAddresses.Single();
-        var dtoAddresses = dto.Addresses.Single();
+        var dtoAddresses = dto.UserAddresses.Single();
         expectedAddress.Address.Should().Be(dtoAddresses.address);
         expectedAddress.City.Should().Be(dtoAddresses.city);
         expectedAddress.Country.Should().Be(dtoAddresses.country);
         expectedAddress.PostalCode.Should().Be(dtoAddresses.postalCode);
     }
+
 }

@@ -9,9 +9,9 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public User()
         {
             Carts = new HashSet<Cart>();
-            Orders = new HashSet<Order>();
             UserAddresses = new HashSet<UserAddress>();
         }
+        
 
         public string Id { get; set; }
         public string UserName { get; set; }
@@ -19,7 +19,7 @@ namespace Neximus.WorkShop.Domain.HumanResources.Users
         public string LastName { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreationDate { get; set; }
-        public Gender Gender { get; set; }
+        public Gender Gender { get; set; } 
         public DateTime RegistrationDate { get; set; }
         public UserProfilePicture ProfilePicture { get; set; }
         public UserContactInfo ContactInfo { get; set; }

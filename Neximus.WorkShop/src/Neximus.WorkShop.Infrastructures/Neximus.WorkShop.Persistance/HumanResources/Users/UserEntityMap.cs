@@ -26,7 +26,7 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
 
             _.Property(x => x.CreationDate).IsRequired();
 
-            _.Property(x => x.Gender).IsRequired().HasDefaultValue(0);
+            _.Property(x => x.Gender).IsRequired();
 
             _.Property(x => x.RegistrationDate).IsRequired();
 
@@ -61,8 +61,6 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
                     .IsRequired()
                     .HasColumnName("ContactInfo_CountryCallingCode");
             });
-            
-            _.Property(_=>_.Gender).IsRequired().HasDefaultValue(0);
         }
     }
 }

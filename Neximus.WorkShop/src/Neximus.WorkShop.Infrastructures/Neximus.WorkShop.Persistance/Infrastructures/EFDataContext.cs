@@ -13,18 +13,22 @@ namespace Neximus.WorkShop.Persistance.Infrastructures
     public class EFDataContext : DbContext
     {
 
-        public DbSet<Employee> Employees { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
 
-        public EFDataContext(DbContextOptions<EFDataContext> options) : base(options) { }
 
+        public EFDataContext(
+            DbContextOptions<EFDataContext> options)
+            : base(options)
+        {
+        }
 
-        public EFDataContext(string connectionString) :
-            this(new DbContextOptionsBuilder<EFDataContext>()
+        public EFDataContext(
+            string connectionString) : this(
+            new DbContextOptionsBuilder<EFDataContext>()
                 .UseSqlServer(connectionString).Options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,7 +37,6 @@ namespace Neximus.WorkShop.Persistance.Infrastructures
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
 
-
         public override ChangeTracker ChangeTracker
         {
             get
@@ -41,11 +44,8 @@ namespace Neximus.WorkShop.Persistance.Infrastructures
                 var changeTracker = base.ChangeTracker;
                 changeTracker.QueryTrackingBehavior =
                     QueryTrackingBehavior.TrackAll;
-
                 changeTracker.LazyLoadingEnabled = true;
-
                 changeTracker.AutoDetectChangesEnabled = true;
-
                 return changeTracker;
             }
         }

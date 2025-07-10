@@ -5,12 +5,6 @@ namespace Neximous.WorkShop.TestTools.Infrastructures;
 
 public class IntegrationSut<T> : AutoServiceCreator<T> where T : class
 {
-    public T Sut { get; set; }
-    public EFDataContext Context { get; set; }
-
-    public EFDataContext ReadContext => new AutoServiceCreator<T>()
-        .SqlServerConfiguration() as EFDataContext;
-
     public IntegrationSut()
     {
         Sut = CreateService<T>(dataBase: FluentGenerator.DataBaseType.SqlServerDataBase);
@@ -21,7 +15,7 @@ public class IntegrationSut<T> : AutoServiceCreator<T> where T : class
     {
         MockedObjects = mockedObjects;
         Sut = CreateService<T>(
-            dataBase: FluentGenerator.DataBaseType.SqlLiteDataBase
+            dataBase: FluentGenerator.DataBaseType.SqlServerDataBase
         );
         Context = GetContext<EFDataContext>();
     }
@@ -30,4 +24,10 @@ public class IntegrationSut<T> : AutoServiceCreator<T> where T : class
     {
         Context.Add(entity).Context.SaveChanges();
     }
+    
+    public T Sut { get; set; }
+    public EFDataContext Context { get; set; }
+
+    public EFDataContext ReadContext => new AutoServiceCreator<T>()
+        .SqlServerConfiguration() as EFDataContext;
 }

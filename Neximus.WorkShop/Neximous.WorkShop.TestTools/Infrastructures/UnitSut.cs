@@ -4,9 +4,6 @@ namespace Neximous.WorkShop.TestTools.Infrastructures;
 
 public class UnitSut<T> : AutoServiceCreator<T> where T : class
 {
-    public T Sut { get; }
-    public EFDataContext Context { get; }
-
     public UnitSut()
     {
         Sut = CreateService<T>(dataBase: FluentGenerator.DataBaseType.SqlLiteDataBase);
@@ -16,7 +13,12 @@ public class UnitSut<T> : AutoServiceCreator<T> where T : class
     public UnitSut(Dictionary<Type, object> mockedObjects)
     {
         MockedObjects = mockedObjects;
-        Sut = CreateService<T>(dataBase: FluentGenerator.DataBaseType.SqlLiteDataBase);
+        Sut = CreateService<T>(
+            dataBase: FluentGenerator.DataBaseType
+                .SqlLiteDataBase);
         Context = GetContext<EFDataContext>();
     }
+
+    public T Sut { get; }
+    public EFDataContext Context { get; }
 }

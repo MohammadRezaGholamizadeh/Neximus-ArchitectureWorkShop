@@ -2,8 +2,8 @@
 {
     public enum Gender
     {
-        None = 0,
-        Male = 1,
-        Female = 2
+        None = 1,
+        Male = 2,
+        Female = 3
     }
 }

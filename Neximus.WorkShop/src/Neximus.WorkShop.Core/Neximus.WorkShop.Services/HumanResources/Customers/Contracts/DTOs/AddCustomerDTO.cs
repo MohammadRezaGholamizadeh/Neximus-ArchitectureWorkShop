@@ -12,7 +12,7 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers.Contracts.DTOs
     {
         public AddCustomerDTO()
         {
-            Addresses = new List<AddCustomerAddressDTO>();
+            UserAddresses = new List<AddCustomerAddressDTO>();
             ContactInfo = new AddCustomerContactInfoDTO();
             ProfilePicture = new AddCustomerProfilePictureDTO();
         }
@@ -27,7 +27,7 @@ namespace Neximus.WorkShop.Services.HumanResources.Customers.Contracts.DTOs
 
         public AddCustomerContactInfoDTO ContactInfo { get; set; }
         public AddCustomerProfilePictureDTO ProfilePicture { get; set; }
-        public List<AddCustomerAddressDTO> Addresses { get; set; }
+        public List<AddCustomerAddressDTO> UserAddresses { get; set; }
 
     }
 }
