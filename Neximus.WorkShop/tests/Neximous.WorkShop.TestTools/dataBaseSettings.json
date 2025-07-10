@@ -1,0 +1,3 @@
+{
+  "DbConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=Neximus-tests;Trusted_Connection=True;"
+}

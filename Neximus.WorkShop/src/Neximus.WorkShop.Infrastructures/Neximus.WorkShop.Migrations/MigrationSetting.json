@@ -1,5 +1,5 @@
 {
   "MigrationSettings": {
-    "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=Neximus;Trusted_Connection=True;"
+    "ConnectionString": "server=.;database=Neximus-tests;Trusted_connection=true;"
   }
 }
