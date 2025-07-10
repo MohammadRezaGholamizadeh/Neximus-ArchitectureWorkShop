@@ -11,7 +11,7 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Customers
     {
         public void Configure(EntityTypeBuilder<Customer> _)
         {
-            _.ToTable("Customer");
+            _.ToTable("Customers");
 
             _.Property(_ => _.OrderNumber).IsRequired();
 

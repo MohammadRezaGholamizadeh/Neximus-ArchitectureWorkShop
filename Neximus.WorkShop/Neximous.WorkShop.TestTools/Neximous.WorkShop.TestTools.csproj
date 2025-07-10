@@ -7,6 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="dataBaseSettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="dataBaseSettings.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\src\Neximus.WorkShop.Core\Neximus.WorkShop.Services\Neximus.WorkShop.Services.csproj" />
       <ProjectReference Include="..\src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Persistance\Neximus.WorkShop.Persistance.csproj" />
     </ItemGroup>

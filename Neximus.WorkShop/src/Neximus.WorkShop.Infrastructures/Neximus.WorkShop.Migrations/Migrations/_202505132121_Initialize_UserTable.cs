@@ -24,7 +24,7 @@ public class _202505132121_Initialize_UserTable : Migration
 
         
         Create.Table("UserAddresses")
-            .WithColumn("Id").AsInt64().PrimaryKey().NotNullable()
+            .WithColumn("Id").AsInt64().PrimaryKey().Identity().NotNullable()
             .WithColumn("UserId").AsString(450).NotNullable()
             .ForeignKey("FK_UserAddresses_Users", "Users", "Id")
             .OnDelete(Rule.Cascade)

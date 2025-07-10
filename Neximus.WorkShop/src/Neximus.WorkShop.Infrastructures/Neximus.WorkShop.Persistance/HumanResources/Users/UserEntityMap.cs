@@ -10,7 +10,7 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
     {
         public void Configure(EntityTypeBuilder<User> _)
         {
-            _.ToTable("User");
+            _.ToTable("Users");
 
             _.HasKey(x => x.Id);
 
@@ -38,10 +38,10 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
                 _.Property(_ => _.ImageExtension)
                     .HasMaxLength(100)
                     .IsRequired()
-                    .HasColumnName("ProfilePicture_ImageExtension");
+                    .HasColumnName("ImageExtension");
 
                 _.Property(_ => _.ImageId).IsRequired().HasMaxLength(100)
-                    .HasColumnName("ProfilePicture_ImageId");
+                    .HasColumnName("ImageId");
             });
 
             _.OwnsOne(_ => _.ContactInfo, _ =>
@@ -49,17 +49,17 @@ namespace Neximus.WorkShop.Persistance.HumanResources.Users
                 _.Property(_ => _.Email)
                     .HasMaxLength(150)
                     .IsRequired()
-                    .HasColumnName("ContactInfo_Email");
+                    .HasColumnName("Email");
 
                 _.Property(_ => _.MobileNumber)
                     .HasMaxLength(11)
                     .IsRequired()
-                    .HasColumnName("ContactInfo_MobileNumber");
+                    .HasColumnName("MobileNumber");
 
                 _.Property(_ => _.CountryCallingCode)
                     .HasMaxLength(5)
                     .IsRequired()
-                    .HasColumnName("ContactInfo_CountryCallingCode");
+                    .HasColumnName("CountryCallingCode");
             });
         }
     }
