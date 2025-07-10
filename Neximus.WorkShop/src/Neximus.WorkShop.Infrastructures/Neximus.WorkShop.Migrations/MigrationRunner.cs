@@ -12,8 +12,7 @@ namespace Neximus.WorkShop.Migrations
 
         public static void Main(string[] args)
         {
-            _connectionString =
-                 MigrationSettings.Instance.GetConnectionString();
+            _connectionString = MigrationSettings.Instance.GetConnectionString();
             RunRootMigrations(args, _connectionString.ConnectionString);
         }
 
@@ -85,7 +84,6 @@ namespace Neximus.WorkShop.Migrations
 
     public static class MigrationTools
     {
-
         public static MigrationSettings GetConnectionString(this MigrationSettings settings)
         {
             var configuration =

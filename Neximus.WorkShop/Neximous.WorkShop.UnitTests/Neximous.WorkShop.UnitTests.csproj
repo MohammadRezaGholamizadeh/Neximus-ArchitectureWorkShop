@@ -23,9 +23,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Neximous.WorkShop.TestTools\Neximous.WorkShop.TestTools.csproj" />
-      <ProjectReference Include="..\src\Neximus.WorkShop.Core\Neximus.WorkShop.Services\Neximus.WorkShop.Services.csproj" />
       <ProjectReference Include="..\src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Migrations\Neximus.WorkShop.Migrations.csproj" />
-      <ProjectReference Include="..\src\Neximus.WorkShop.Infrastructures\Neximus.WorkShop.Persistance\Neximus.WorkShop.Persistance.csproj" />
     </ItemGroup>
 
 </Project>
